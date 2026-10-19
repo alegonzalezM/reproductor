@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎵 Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="player">
+    <input type="file" id="fileInput" accept="audio/*" multiple hidden />
+    <button id="btnAdd" class="btn-add">📂 Agregar canciones</button>
+
+    <div class="track-info">
+      <p id="trackName">Seleccioná una canción</p>
+      <p id="trackCount"></p>
+    </div>
+
+    <div class="progress-container" id="progressBar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <div class="times">
+      <span id="currentTime">0:00</span>
+      <span id="totalTime">0:00</span>
+    </div>
+
+    <div class="controls">
+      <button id="btnPrev">⏮</button>
+      <button id="btnPlay" class="btn-play">▶</button>
+      <button id="btnNext">⏭</button>
+    </div>
+
+    <div class="playlist" id="playlist"></div>
+  </div>
+
+  <script src="reproductor.js"></script>
+</body>
+</html>   
