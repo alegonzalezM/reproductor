@@ -18,6 +18,8 @@ const playlistEl = document.getElementById("playlist");
 const playlistsEl = document.getElementById("playlists");
 const playlistNameInput = document.getElementById("playlistName");
 const btnCreate = document.getElementById("btnCreate");
+const folderInput = document.getElementById("folderInput");
+
 
 // ── Helper ──
 function getTracks() {
@@ -65,6 +67,29 @@ function selectPlaylist(i) {
   renderPlaylist();
   if (getTracks().length > 0) loadTrack(0);
 }
+
+// Botón "Agregar carpeta"
+document.getElementById("btnAddFolder").addEventListener("click", () => folderInput.click());
+
+// Mismo handler que fileInput
+folderInput.addEventListener("change", (e) => {
+  if (currentPlaylist < 0) {
+    playlists.push({ name: "Lista 1", tracks: [] });
+    currentPlaylist = 0;
+  }
+  const files = [...e.target.files];
+  files.forEach(f => {
+    playlists[currentPlaylist].tracks.push({
+      name: f.name.replace(/\.[^.]+$/, ""),
+      url: URL.createObjectURL(f),
+      isVideo: f.type.startsWith("video/")
+    });
+  });
+  e.target.value = "";
+  renderPlaylists();
+  renderPlaylist();
+  if (getTracks().length > 0) loadTrack(0);
+});   
 
 // ── Reproducción ──
 function loadTrack(i) {

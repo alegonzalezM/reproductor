@@ -12,8 +12,10 @@
 </head>
 <body>
   <div class="player">
-    <input type="file" id="fileInput" accept="audio/*,video/*" multiple hidden />   
-    
+    <!-- <input type="file" id="fileInput" accept="audio/*,video/*" multiple hidden /> -->
+  <input type="file" id="fileInput" accept=".mp3,.wav,.ogg,.m4a,.mp4,.webm,.mov,audio/*,video/*" multiple hidden />
+  <input type="file" id="folderInput" webkitdirectory multiple hidden />   
+
     <button id="btnAdd" class="btn-add">📂 Agregar canciones</button>
 
     <div class="track-info">
@@ -39,19 +41,10 @@
   <input type="text" id="playlistName" placeholder="Nombre de la lista" />
   <button id="btnCreate">➕ Crear lista</button>
 </div>
-   
-<div class="playlist-controls">
-  <input type="text" id="playlistName" placeholder="Nombre de la lista" />
-  <button id="btnCreate">➕ Crear lista</button>
-</div>
 
 <!-- ← FALTABA ESTE -->
 <div class="playlists" id="playlists"></div>
-
-<div class="playlist" id="playlist"></div>   
-
-    <div class="playlist" id="playlist"></div>
-  </div>
+<div class="playlist" id="playlist"></div>
 
   <script src="reproductor.js"></script>
 </body>
